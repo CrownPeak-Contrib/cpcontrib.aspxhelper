@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("cpcontrib.aspxhelper")]
+[assembly: AssemblyTitle("cpcontrib.AspxHelper")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("cpcontrib.aspxhelper")]
+[assembly: AssemblyCompany("github.com/cpcontrib")]
+[assembly: AssemblyProduct("cpcontrib.AspxHelper")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
