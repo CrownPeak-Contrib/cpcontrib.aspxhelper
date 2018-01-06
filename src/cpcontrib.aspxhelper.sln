@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cpcontrib.aspxhelper", "cpcontrib.aspxhelper\cpcontrib.aspxhelper.csproj", "{A718678F-DB90-4899-8759-AB0F3696C277}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspxHelper", "Aspxhelper\AspxHelper.csproj", "{A718678F-DB90-4899-8759-AB0F3696C277}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

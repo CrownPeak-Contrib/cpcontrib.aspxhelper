@@ -307,7 +307,7 @@ namespace CrownPeak.CMSAPI.CustomLibrary
 			}
 		}
 
-#region Wrap Helper
+		#region Wrap Helper
 
 		/// <summary>
 		/// A helper class for writing content when disposed.  Designed to be used in a c# using statement.
