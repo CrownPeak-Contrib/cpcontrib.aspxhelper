@@ -307,6 +307,36 @@ namespace CrownPeak.CMSAPI.CustomLibrary
 			}
 		}
 
+
+		/// <summary>
+		/// Writes out a Register directive and the control instatiation declarations.
+		/// </summary>
+		/// <param name="ascxSrc">Path to the ASCX control in the runtime web application</param>
+		/// <returns></returns>
+		public static string WriteASCXDeclaration(string ascxSrc, params string[] attributes)
+		{
+			string[] segments = ascxSrc.Split('/');
+
+			string name = segments.Last();
+			name = name.Substring(0, name.IndexOf('.')); //lop off the .ascx part
+
+			StringBuilder sb = new StringBuilder();
+			sb.AppendFormat("<$@ Register TagPrefix=\"ctl\" Name=\"{0}\" Src=\"{1}\" $>\n", name, ascxSrc);
+			sb.AppendFormat("<ctl:{0} runat=\"server\"", name);
+
+			if(attributes != null && attributes.Length > 0)
+			{
+				foreach(var attr in attributes)
+				{
+					sb.Append(" ").Append(attr);
+				}
+			}
+
+			sb.Append(" />\n");
+
+			return sb.ToString();
+		}
+
 		#region Wrap Helper
 
 		/// <summary>
