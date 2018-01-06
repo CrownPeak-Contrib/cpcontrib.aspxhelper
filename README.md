@@ -4,6 +4,10 @@ Asp.Net project publishing helper library
 - Assists with generating ASP.Net directives, include Page/Master/UserControls
 - Helps CrownPeak aspx parser to be able to ignore directives that should only be interpreted after publishing
 
+```
+cppm install cpcontrib.aspxhelper
+```
+
 ## MasterPages and CrownPeak Nav Wrappers
 
 In your Nav Wrap, we use:
@@ -28,3 +32,47 @@ Two methods are included to help with these situations:
 - ```AspxHelper.WriteASCXDeclaration``` writes a declaration for a usercontrol directly
 - (Coming soon) ```AspxHelper.ASCX_Output(assetPath:"~/Controls/control.ascx")``` will help to bridge the gap between UserControls only running in the published runtime.
 
+## Nav Wrapper Setup
+
+Within the Nav Wrapper template, a developer would use ```WriteMasterDirective``` which properly outputs the Master directive that Asp.Net expects for the implementation:
+
+```
+<% AspxHelper.WriteMasterDirective(context, asset); %>
+
+<html>
+<body>
+
+<% 
+//preview: writes nothing
+//publishing: writes "<asp:ContentPlaceholder runat="server" id="contentPlaceholderId" />"
+AsoxHekoer.WritePlaceholder(context, asset, AspxHelper.GetMasterPage(asset), "contentPlaceholderId"); 
+%>
+
+</body>
+</html>
+
+```
+
+## Template Output.aspx Setup
+
+Your other template output.aspx implementations then use the following code to output the correct Asp.Net Content Placeholders
+
+```
+<% AspxHelper.WrapAspxMaster(context, asset, AspxHelper.GetMasterPage(asset)); %>
+
+<% using(AspxHelper.WrapContent(context, asset, "contentPlaceholderId") { %>
+
+<!-- create your html for template's output.aspx here -->
+
+<% } %>
+```
+
+## Other features
+
+Other features supported include:
+- default placeholder content, for within CrownPeak preview mode
+- nested content placeholders, for nested masterpages
+
+## Credits
+
+Built by Eric Newton and Diego Nunez
